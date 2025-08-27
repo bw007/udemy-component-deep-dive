@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, input, Input, ViewEncapsulation } from '@angular/core';
 
 type Image = {
   src: string;
@@ -10,7 +10,10 @@ type Image = {
   standalone: true,
   imports: [],
   templateUrl: './dashboard-item.component.html',
-  styleUrl: './dashboard-item.component.css'
+  styleUrl: './dashboard-item.component.css',
+  host: {
+    class: 'dashboard-item'
+  }
 })
 export class DashboardItemComponent {
   // @Input({ required: true }) image!: Image;

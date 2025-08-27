@@ -1,8 +1,13 @@
-<div>
-  @if (currentStatus === 'online') {
+<div [class]="{
+  status: true,
+  'status-online': currentStatus === ServerStatus.Online,
+  'status-offline': currentStatus === ServerStatus.Offline,
+  'status-unknown': currentStatus === ServerStatus.Unknown
+}">
+  @if (currentStatus === ServerStatus.Online) {
     <p>Servers are online</p>
     <p>All systems are operational.</p>
-  } @else if (currentStatus === 'offline') {
+  } @else if (currentStatus === ServerStatus.Offline) {
     <p>Servers are offline</p>
     <p>Functionality should be restored soon.</p>
   } @else {
